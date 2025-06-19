@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruangguru Bersama Kak Bubu - Butuh Bimbingan, Bukan Omelan!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Styling & Fonts */
+:root {
+    /* Palet Warna Baru: Krem dan Hijau */
+    --cream-light: #F8F6F4;      /* Background paling terang, hampir putih */
+    --cream-medium: #EADBC8;     /* Warna krem yang lebih kaya, untuk card atau secondary background */
+    --green-dark: #2C3D32;       /* Warna hijau tua, untuk teks utama, header, footer */
+    --green-medium: #6D9773;     /* Warna hijau sedang, untuk accent, tombol, link */
+    --green-light: #B7D0BC;      /* Warna hijau muda, untuk border atau elemen dekoratif */
+
+    --text-default: #333333;     /* Warna teks umum */
+    --text-light: #f4f4f4;       /* Warna teks untuk background gelap */
+
+    --shadow-light: 0 4px 8px rgba(0, 0, 0, 0.08);
+    --shadow-medium: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    line-height: 1.6;
+    color: var(--text-default);
+    background-color: var(--cream-light); /* Background web keseluruhan */
+    overflow-x: hidden; /* Mencegah overflow horizontal */
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+h1, h2, h3, h4 {
+    color: var(--green-dark); /* Warna header */
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+a {
+    color: var(--green-medium); /* Warna link default */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--green-dark); /* Hover link */
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1rem;
+    margin: 10px 5px;
+}
+
+.primary-btn {
+    background-color: var(--green-medium);
+    color: white;
+    border: 2px solid var(--green-medium);
+}
+
+.primary-btn:hover {
+    background-color: var(--green-dark);
+    border-color: var(--green-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-light);
+}
+
+.secondary-btn {
+    background-color: var(--cream-medium);
+    color: var(--green-dark);
+    border: 2px solid var(--green-dark);
+}
+
+.secondary-btn:hover {
+    background-color: var(--green-dark);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-light);
+}
+
+.whatsapp-lg-btn {
+    background-color: var(--green-medium);
+    color: white;
+    border: 2px solid var(--green-medium);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+}
+
+.whatsapp-lg-btn i {
+    margin-right: 8px;
+    font-size: 1.3rem;
+}
+
+.whatsapp-lg-btn:hover {
+    background-color: var(--green-dark);
+    border-color: var(--green-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-light);
+}
+
+.large-btn { /* Untuk tombol di Hero Section */
+    padding: 18px 35px;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    margin-top: 30px;
+}
+
+
+/* Header Styling */
+#main-header {
+    background-color: var(--cream-medium);
+    padding: 15px 0;
+    box-shadow: var(--shadow-light);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.logo a {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--green-dark);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.logo a:hover {
+    color: var(--green-medium);
+}
+
+/* Hamburger Menu Toggle Button */
+.menu-toggle {
+    display: none; /* Sembunyikan secara default di desktop */
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: var(--green-dark);
+    cursor: pointer;
+    padding: 5px;
+    z-index: 1001;
+}
+
+.main-nav {
+    display: flex;
+    align-items: center; /* Pastikan rata tengah vertikal */
+}
+
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.main-nav ul li {
+    margin-left: 25px;
+}
+
+.main-nav ul li a {
+    color: var(--green-dark);
+    font-weight: 600;
+    padding: 5px 0;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.main-nav ul li a:hover,
+.main-nav ul li a.active {
+    color: var(--green-medium);
+}
+
+.main-nav ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 3px;
+    background-color: var(--green-medium);
+    transition: width 0.3s ease;
+}
+
+.main-nav ul li a:hover::after,
+.main-nav ul li a.active::after {
+    width: 100%;
+}
+
+.main-nav ul li .fab {
+    font-size: 1.5rem;
+    color: var(--green-dark);
+    margin-left: 10px;
+}
+.main-nav ul li .fab:hover {
+    color: var(--green-medium);
+}
+
+/* Specific styling for the small WhatsApp button in header */
+.whatsapp-small-btn {
+    padding: 8px 15px; /* Lebih kecil dari btn biasa */
+    font-size: 0.9rem;
+    margin-left: 15px; /* Jarak dari item nav lainnya */
+}
+.whatsapp-small-btn i {
+    margin-right: 5px;
+    font-size: 1rem;
+}
+
+/* Hero Section - Diperbarui untuk Slider Background */
+.hero-section {
+    position: relative; /* Penting untuk positioning anak-anaknya */
+    overflow: hidden; /* Penting untuk menyembunyikan bagian gambar yang tidak terlihat */
+    min-height: 550px; /* Tinggi minimum agar konten terlihat */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white; /* Warna teks default untuk hero */
+    padding: 80px 20px; /* Padding untuk konten di dalamnya */
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    margin-bottom: 50px;
+}
+
+.hero-slider-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Sangat penting untuk menyembunyikan gambar di luar viewport */
+    z-index: 1; /* Di bawah konten teks */
+}
+
+.hero-slider-track {
+    display: flex;
+    width: max-content; /* Ini akan disesuaikan oleh JS berdasarkan jumlah gambar */
+    height: 100%;
+    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Transisi lebih halus */
+}
+
+.slider-image-bg { /* Ganti nama kelas dari .slider-image */
+    width: 100vw; /* Setiap gambar mengambil lebar viewport penuh */
+    height: 100%;
+    object-fit: cover; /* Penting untuk mengisi area tanpa distorsi */
+    flex-shrink: 0; /* Mencegah gambar menyusut */
+    filter: brightness(60%) saturate(120%); /* Efek visual agar teks lebih jelas */
+}
+
+.hero-content { /* Ini adalah div container untuk teks dan tombol */
+    position: relative;
+    z-index: 2; /* Di atas gambar background */
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hero-section h2 {
+    font-size: 3.5rem; /* Lebih besar */
+    margin-bottom: 20px;
+    line-height: 1.2;
+    color: white;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.4); /* Shadow lebih tebal */
+}
+
+.hero-section p {
+    font-size: 1.4rem; /* Lebih besar */
+    max-width: 800px;
+    margin: 0 auto;
+    color: rgba(255, 255, 255, 0.98); /* Lebih putih */
+    font-weight: 400;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+
+/* Packages Section */
+.packages-section {
+    padding: 80px 20px;
+    text-align: center;
+    background-color: var(--cream-light);
+}
+
+.packages-section h3 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+}
+
+.package-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.package-card {
+    background-color: var(--cream-medium);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: var(--shadow-light);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid var(--green-light);
+}
+
+.package-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-medium);
+}
+
+.package-card h4 {
+    font-size: 1.6rem;
+    color: var(--green-dark);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.package-card h4 .fas {
+    font-size: 1.8rem;
+    color: var(--green-medium);
+}
+
+.package-card p {
+    font-size: 1rem;
+    color: var(--text-default);
+    flex-grow: 1;
+}
+
+.package-card .btn {
+    margin-top: 20px;
+    width: auto;
+}
+
+
+/* Video Section */
+.video-section {
+    padding: 80px 20px;
+    background-color: var(--cream-light);
+    text-align: center;
+}
+
+.video-section h3 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.video-card {
+    background-color: var(--cream-medium);
+    border-radius: 15px;
+    box-shadow: var(--shadow-light);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--green-light);
+}
+
+.video-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-medium);
+}
+
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    background-color: #000;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px 15px 0 0;
+}
+
+.video-card h4 {
+    font-size: 1.4rem;
+    margin: 20px 15px 10px 15px;
+    color: var(--green-dark);
+}
+
+.video-card p {
+    font-size: 0.95rem;
+    color: var(--text-default);
+    margin: 0 15px 20px 15px;
+}
+
+.video-section .note {
+    margin-top: 30px;
+    font-style: italic;
+    color: var(--text-default);
+    font-size: 0.9rem;
+}
+
+/* Testimonials Section */
+.testimonials-section {
+    padding: 80px 20px;
+    background-color: var(--green-dark);
+    color: white;
+    text-align: center;
+}
+
+.testimonials-section h3 {
+    color: white;
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+}
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.testimonial-card {
+    background-color: var(--cream-medium);
+    color: var(--text-default);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: var(--shadow-medium);
+    text-align: left;
+    transition: transform 0.3s ease;
+    border: 1px solid var(--green-light);
+}
+
+.testimonial-card:hover {
+    transform: translateY(-10px);
+}
+
+.testimonial-card p {
+    font-style: italic;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.testimonial-card span {
+    display: block;
+    font-weight: 600;
+    color: var(--green-medium);
+    text-align: right;
+    margin-top: 10px;
+}
+
+/* About Section */
+.about-section {
+    padding: 80px 20px;
+    text-align: center;
+    background-color: var(--cream-light);
+}
+
+.about-section h3 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+}
+
+.about-section p {
+    max-width: 800px;
+    margin: 0 auto 15px auto;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* Contact Info Section */
+.contact-info-section {
+    padding: 60px 20px;
+    background-color: var(--cream-medium);
+    text-align: center;
+    border-top: 1px solid var(--green-light);
+    margin-top: 0;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+.contact-info-section h3 {
+    font-size: 2.2rem;
+    color: var(--green-dark);
+    margin-bottom: 20px;
+}
+
+.bubu-message {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--green-dark);
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+    line-height: 1.5;
+    background-color: var(--green-light);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px dashed var(--green-dark);
+}
+
+.contact-info-details {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.contact-info-details p {
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.contact-info-details p i {
+    margin-right: 10px;
+    color: var(--green-medium);
+    font-size: 1.3rem;
+}
+
+/* Footer */
+footer {
+    background-color: var(--green-dark);
+    color: var(--text-light);
+    padding: 30px 20px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+footer p {
+    margin-bottom: 0;
+}
+
+/* WhatsApp Float Button */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--green-medium);
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 2.2rem;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    background-color: var(--green-dark);
+    transform: scale(1.05);
+    box-shadow: 3px 3px 6px #666;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .hero-section {
+        min-height: 450px; /* Sedikit lebih kecil di tablet */
+    }
+    .hero-section h2 {
+        font-size: 3rem;
+    }
+    .hero-section p {
+        font-size: 1.3rem;
+    }
+    .large-btn {
+        padding: 15px 30px;
+        font-size: 1.1rem;
+    }
+    .packages-section h3,
+    .video-section h3,
+    .testimonials-section h3,
+    .about-section h3,
+    .contact-info-section h3 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: row; /* Tetap satu baris di sini untuk logo dan tombol */
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 15px;
+    }
+    .menu-toggle {
+        display: block; /* Tampilkan tombol hamburger */
+    }
+    .main-nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--cream-medium);
+        box-shadow: var(--shadow-light);
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        border-top: 1px solid var(--green-light);
+        z-index: 999;
+        transition: transform 0.3s ease-out;
+        transform: translateY(-100%);
+    }
+    .main-nav.active {
+        display: flex;
+        transform: translateY(0);
+    }
+    .main-nav ul {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+    }
+    .main-nav ul li {
+        margin: 10px 0;
+        width: 90%;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        padding-bottom: 5px;
+    }
+    .main-nav ul li:last-child {
+        border-bottom: none;
+    }
+    .main-nav ul li a {
+        padding: 10px 0;
+        display: block;
+    }
+    .main-nav ul li a::after {
+        display: none;
+    }
+    .main-nav ul li .fab {
+        font-size: 1.8rem;
+        margin: 0;
+    }
+    /* Sembunyikan tombol WhatsApp header di mobile */
+    .whatsapp-header-btn-desktop {
+        display: none;
+    }
+
+    .hero-section {
+        min-height: 400px; /* Lebih kecil di mobile */
+        padding: 60px 15px;
+        border-bottom-left-radius: 30px;
+        border-bottom-right-radius: 30px;
+    }
+    .hero-section h2 {
+        font-size: 2.5rem;
+    }
+    .hero-section p {
+        font-size: 1.1rem;
+    }
+    .large-btn {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+
+    .packages-section, .video-section, .testimonials-section, .about-section, .contact-info-section {
+        padding: 60px 15px;
+    }
+
+    .package-grid, .video-grid, .testimonial-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .testimonial-card, .package-card, .video-card {
+        margin: 0 auto;
+        max-width: 450px;
+    }
+
+    .bubu-message {
+        font-size: 1.1rem;
+        padding: 15px;
+    }
+
+    .whatsapp-lg-btn {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 95%;
+        padding: 15px 0;
+    }
+
+    .logo a {
+        font-size: 1.6rem;
+    }
+
+    .hero-section {
+        min-height: 350px; /* Paling kecil di mobile */
+        padding: 40px 10px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+    .hero-section h2 {
+        font-size: 2rem; /* Ukuran font H2 lebih kecil */
+    }
+    .hero-section p {
+        font-size: 0.95rem; /* Ukuran font P lebih kecil */
+    }
+    .large-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    h1, h2, h3 {
+        font-size: 1.8rem;
+    }
+    h4 {
+        font-size: 1.4rem;
+    }
+
+    .package-card, .video-card, .testimonial-card {
+        padding: 20px;
+    }
+
+    .package-card h4 {
+        font-size: 1.4rem;
+    }
+    .package-card h4 .fas {
+        font-size: 1.6rem;
+    }
+    .package-card p {
+        font-size: 0.9rem;
+    }
+
+    .video-card h4 {
+        font-size: 1.2rem;
+    }
+    .video-card p {
+        font-size: 0.85rem;
+    }
+
+    .testimonial-card p {
+        font-size: 1rem;
+    }
+
+    .about-section p {
+        font-size: 1rem;
+    }
+
+    .bubu-message {
+        font-size: 1rem;
+        padding: 12px;
+    }
+
+    .contact-info-details p {
+        font-size: 0.95rem;
+    }
+
+    .whatsapp-lg-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    .whatsapp-lg-btn i {
+        font-size: 1rem;
+    }
+
+    .whatsapp-float {
+        width: 45px;
+        height: 45px;
+        bottom: 15px;
+        right: 15px;
+        font-size: 1.6rem;
+    }
+
+    footer p {
+        font-size: 0.8rem;
+    }
+}
+    </style>
+</head>
+<body>
+
+    <header id="main-header">
+        <div class="container header-content">
+            <h1 class="logo"><a href="#hero">Ruangguru Bersama Bubu</a></h1>
+            <button class="menu-toggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#paket-belajar">Paket Belajar</a></li>
+                    <li><a href="#video-influencer">Video Inspirasi</a></li>
+                    <li><a href="#contact-info-section">Kontak Bubu</a></li>
+                    <li><a href="https://www.instagram.com/bububelajar.rg" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="https://tiktok.com/@your_tiktok" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a></li>
+                    <li class="whatsapp-header-btn-desktop">
+                        <a href="https://wa.me/6285963011900?text=Halo%2C%20Kak%20Bubu%2C%20saya%20ingin%20bertanya%20tentang%20Ruangguru." target="_blank" class="btn primary-btn whatsapp-small-btn">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="hero-section">
+            <div class="hero-slider-container">
+                <div class="hero-slider-track">
+                    <img src="https://i.imgur.com/Oes4VUi.png" alt="Hero Background 1" class="slider-image-bg">
+                    <img src="https://i.imgur.com/tQiz3lF.png" alt="Hero Background 2" class="slider-image-bg">
+                    <img src="https://via.placeholder.com/1920x1080/EADBC8/2C3D32?text=Background+3" alt="Hero Background 3" class="slider-image-bg">
+                    <img src="https://i.ibb.co/C04Yq5x/kak-bubu.png" alt="Hero Background 1 Duplicate" class="slider-image-bg">
+                </div>
+            </div>
+            <div class="container hero-content">
+                <h2>Wujudkan Potensi Akademik Maksimal Bersama Ruangguru!</h2>
+                <p>Yuk Berlangganan Bersama Bubu!! Belajar Lebih Cerdas, Raih Prestasi Gemilang dengan panduan terbaik dan materi terlengkap. **Butuh Bimbingan, Bukan Omelan!**</p>
+                <a href="#paket-belajar" class="btn primary-btn large-btn">Gabung Sekarang!</a>
+            </div>
+        </section>
+
+        <section id="paket-belajar" class="packages-section">
+            <div class="container">
+                <h3>Pilihan Terbaik untuk Belajarmu</h3>
+                <p>Temukan program Ruangguru yang sesuai dengan kebutuhan dan gayamu belajar.</p>
+                <div class="package-grid">
+                    <div class="package-card">
+                        <h4><i class="fas fa-video"></i> Ruangbelajar</h4>
+                        <p>Akses ribuan video pembelajaran interaktif, latihan soal, dan rangkuman materi untuk semua mata pelajaran.</p>
+                        <a href="LINK_AFFILIASI_RUANGBELAJAR_ANDA" target="_blank" class="btn primary-btn">Lihat Detail & Daftar</a>
+                    </div>
+                    <div class="package-card">
+                        <h4><i class="fas fa-chalkboard-teacher"></i> Brain Academy</h4>
+                        <p>Bimbingan belajar tatap muka/online dengan guru terbaik, dilengkapi modul eksklusif dan pendampingan personal.</p>
+                        <a href="LINK_AFFILIASI_BRAINACADEMY_ANDA" target="_blank" class="btn primary-btn">Lihat Detail & Daftar</a>
+                    </div>
+                    <div class="package-card">
+                        <h4><i class="fas fa-globe"></i> English Academy</h4>
+                        <p>Kursus bahasa Inggris online interaktif dengan native speaker dan kurikulum internasional.</p>
+                        <a href="LINK_AFFILIASI_ENGLISHACADEMY_ANDA" target="_blank" class="btn primary-btn">Lihat Detail & Daftar</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="video-influencer" class="video-section">
+            <div class="container">
+                <h3>Belajar dan Terinspirasi dari Kak Bubu & Ruangguru!</h3>
+                <p>Simak tips belajar, motivasi, dan pembahasan seru dari para ahli dan brand ambassador Ruangguru favoritmu.</p>
+                <div class="video-grid">
+                    <div class="video-card">
+                        <div class="video-wrapper">
+                            <iframe src="https://www.youtube.com/" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <h4>RAHASIA JUARA MATEMATIKA DAN JAGO LOGIKA</h4>
+                        <p>Pelajari strategi efektif untuk memaksimalkan pengalaman belajarmu secara daring dari Ruangguru!</p>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-wrapper">
+                            <iframe src="https://www.youtube.com/watch?v=DYsU8q946LJNpCzt" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <h4>Mengenal Lebih Dekat Ruangguru: Prilly Latuconsina Berbagi Pengalaman</h4>
+                        <p>Simak cerita seru dan pengalaman pribadi Prilly Latuconsina menggunakan Ruangguru.</p>
+                    </div>
+                </div>
+                <p class="note">Temukan video inspiratif lainnya di <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ8" target="_blank">Channel YouTube Ruangguru</a>!</p>
+            </div>
+        </section>
+
+        <section id="testimonials" class="testimonials-section">
+            <div class="container">
+                <h3>Apa Kata Mereka Tentang Ruangguru?</h3>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <p>"Ruangguru benar-benar mengubah cara saya belajar. Materinya lengkap dan penjelasannya mudah dipahami!"</p>
+                        <span>- Sarah, Siswa SMA</span>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"Anak saya jadi lebih semangat belajar sejak pakai Ruangguru. Nilainya juga meningkat drastis!"</p>
+                        <span>- Ibu Ana, Orang Tua Siswa</span>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"Dengan Ruangguru, saya bisa belajar kapan saja dan di mana saja. Cocok banget buat saya yang punya jadwal padat!"</p>
+                        <span>- Rio, Mahasiswa</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="container">
+                <h3>Siapa Kami?</h3>
+                <p>Kami adalah tim yang berdedikasi untuk membantu para pelajar di Indonesia meraih impian akademik mereka. Sebagai afiliasi resmi Ruangguru, kami bersemangat untuk merekomendasikan solusi belajar terbaik yang telah terbukti efektif.</p>
+                <p>Misi kami adalah menjembatani Anda dengan sumber daya belajar berkualitas tinggi yang ditawarkan Ruangguru, memastikan setiap siswa mendapatkan kesempatan terbaik untuk sukses. **Bersama Kak Bubu, belajar itu seru dan efektif!**</p>
+            </div>
+        </section>
+
+        <section id="contact-info-section" class="contact-info-section">
+            <div class="container">
+                <h3>Mari Terhubung dengan Kak Bubu!</h3>
+                <p class="bubu-message">Ada kendala dalam belajar? Bingung pilih paket yang tepat? Langsung chat Kak Bubu aja! Ingat, **Butuh Bimbingan, Bukan Omelan!** Kita di sini untuk mendampingi, bukan menghakimi. Let's make learning fun! 🎓💪</p>
+                <div class="contact-info-details">
+                    <p><i class="fas fa-envelope"></i> Email: <a href="mailto:kakbubu.ruangguru@example.com">kakbubu.ruangguru@example.com</a></p>
+                    <div class="social-contact">
+                        <a href="https://wa.me/6285963011900?text=Halo%2C%20Kak%20Bubu%2C%20saya%20ingin%20bertanya%20tentang%20Ruangguru." target="_blank" class="btn whatsapp-lg-btn"><i class="fab fa-whatsapp"></i> Chat Kak Bubu via WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Ruangguru Affiliate | Dibuat dengan <i class="fas fa-heart"></i> untuk Pendidikan Indonesia.</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/6285963011900?text=Halo%2C%20Kak%20Bubu%2C%20saya%20ingin%20bertanya%20tentang%20Ruangguru." target="_blank" class="whatsapp-float" aria-label="Chat via WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
